@@ -1,0 +1,90 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+#header {
+    display: flex;
+    height: 5%;
+    justify-content: space-between;
+    padding: 1vw;
+    background-color: brown;
+}
+
+#main-container {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    padding-top: 3vh;
+    height: 95%;
+}
+
+#lateral-container {
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid gray;
+}
+
+#default-projects-container nav{
+    display:flex;
+    flex-direction: column;
+    padding-left: 1vw;
+}
+
+#default-projects-container nav >* {
+    padding: 1vh;
+}
+
+#personal-projects-container {
+    padding-left: 1vw;
+}
+
+#personal-projects-container ul{
+    padding-left: 1vw;
+    margin: 0;
+}
+
+#ul-title {
+    margin: 0;
+    padding: 1vh;
+    border-bottom: solid 1px gray;
+}
+
+#personal-projects-container ul >* {
+    padding: 1vh;
+}
+
+#tasks-container {
+    display: flex;
+    flex-direction: column;
+}
+
+#tasks-container >*{
+    padding: 1vh;
+}
+
+#task-form-container {
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    width: 20%;
+    height: 80%;
+    margin-left: 40%;
+    justify-content: center;
+}
+
+#task-form > * {
+    display: block;
+}
+
+#task-form input, #task-form textarea{
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+#add-task-btn {
+    margin: auto;
+}

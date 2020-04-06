@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo List</title>
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+    <div id="header">
+        <div id="logo-container">ToDo List</div>
+        <div id="search-container">Quick Search</div>
+        <div id="task-counter-container">150</div>
+    </div>
+
+    <div id="main-container">
+        <div id="lateral-container">
+            <div id="default-projects-container">
+                <nav>
+                    <a href="#">Today</a>
+                    <a href="#">This Week</a>
+                    <a href="#">Important</a>
+                </nav>
+            </div>
+            <div id="personal-projects-container">
+                <p id="ul-title">Projects</p>
+                <ul id="projects-list">
+                    <!-- <li class="project">Work</li>
+                    <li class="project">Personal</li> -->
+                </ul>
+            </div>
+        </div>
+
+        <div id="tasks-container">
+            <div>
+                <h2 id="project-title">Today</h2>
+            </div>
+            <div id="tasks-list"></div>
+            <div id="add-task">Add Task</div>
+        </div>
+
+        <div id="task-form-container">
+            <form id="task-form">
+                <label>Task Name <input type="text" id="name" name="name" required></label>
+                <label>Task Description <textarea id='description' placeholder='Further Details'></textarea></label>
+                <label>Due Date <input type="date" id="date" name="date"></label>
+                <label>High Priority <input type="checkbox" id="priority" name="priority"></label>
+                <label for="add-task-btn"></label>
+                <button type="submit" id="add-task-btn">Add Task</button>
+            </form>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="./main.js"></script>
+</body>
+
+</html>
