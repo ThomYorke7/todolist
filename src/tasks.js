@@ -1,7 +1,10 @@
 const taskList = [];
+let taskID = 0
 
-const taskFactory = (title, description, dueDate, priority) => {
-    let task = { title, description, dueDate, priority };
+const taskFactory = (title, dueDate, priority) => {
+    let id = taskID
+    let task = { title, dueDate, priority, id };
+    taskID++
     taskList.push(task);
     return task
 };

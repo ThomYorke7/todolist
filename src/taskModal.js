@@ -31,17 +31,16 @@ const submitTask = () => {
     submitTaskBtn.addEventListener("click", (e) => {
         e.preventDefault()
         let taskName = document.getElementById("name").value
-        let taskDescription = document.getElementById("description").value
         let taskDate = document.getElementById("date").value
         let taskPriority = document.getElementById("priority").checked
-        let newTask = taskFactory(taskName, taskDescription, taskDate, taskPriority);
+        let newTask = taskFactory(taskName, taskDate, taskPriority);
         let activeProject = findActiveProject();
         activeProject.taskList.push(newTask);
-        console.log(activeProject)
+        console.log(projectList)
     })
 
 }
 
 
 
-export { taskFormHandler, submitTask }
+export { taskFormHandler, submitTask, findActiveProject }

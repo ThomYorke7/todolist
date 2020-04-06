@@ -1,37 +1,36 @@
 import { taskList, taskFactory } from "./tasks.js"
 import { projectFactory, projectList, populateProjectList } from "./projects.js"
+import { findActiveProject } from "./taskModal"
 
 const projects = document.getElementsByClassName("project")
 const personalProjectsContainer = document.getElementById("personal-projects-container")
 const formContainer = document.getElementById("task-form-container")
+const tasksContainer = document.getElementById("tasks-container")
 const tasksList = document.getElementById("tasks-list")
+const removeTaskBtn = document.getElementsByClassName("task-remove-btn")
 
-const createTaskContainer = (title, description, date, priority) => {
+const createTaskContainer = (title, date, priority, taskID) => {
     const taskContainer = document.createElement("div")
     taskContainer.classList.add("task-container")
-    const taskHeader = document.createElement("h3")
+    const taskHeader = document.createElement("p")
     taskHeader.classList.add("task-header")
     taskHeader.textContent = title
-    const taskDescription = document.createElement("p")
-    taskDescription.classList.add("task-description")
-    taskDescription.textContent = description
     const taskDate = document.createElement("p")
     taskDate.classList.add("task-date")
     taskDate.textContent = date
     const taskPriority = document.createElement("span")
     taskPriority.classList.add("task-priority")
     if (priority) {
-        taskPriority.textContent = "!"
+        taskPriority.textContent = "Important"
     }
-    const taskDetailsBtn = document.createElement("button")
-    taskDetailsBtn.classList.add("task-button")
-    taskDetailsBtn.textContent = ("Show Details")
+    const taskRemoveBtn = document.createElement("div")
+    taskRemoveBtn.classList.add("task-remove-btn")
+    taskRemoveBtn.id = taskID
 
-    taskContainer.appendChild(taskPriority);
     taskContainer.appendChild(taskHeader);
-    taskContainer.appendChild(taskDescription);
     taskContainer.appendChild(taskDate);
-    taskContainer.appendChild(taskDetailsBtn);
+    taskContainer.appendChild(taskPriority);
+    taskContainer.appendChild(taskRemoveBtn);
     tasksList.appendChild(taskContainer)
 }
 
@@ -75,6 +74,21 @@ const eventListener = () => {
         if (e.target && e.target.id == "add-task-btn") {
             let activeProject = document.getElementById("project-title").textContent
             displayProjectTasks(activeProject)
+        }
+    })
+
+    tasksContainer.addEventListener("click", (e) => {
+        if (e.target && e.target.classList.contains("task-container")) {
+            e.target.classList.toggle("erased")
+        }
+    })
+
+    tasksContainer.addEventListener("click", (e) => {
+        if (e.target && e.target.classList.contains("task-remove-btn")) {
+            let taskID = e.target.id
+            let activeProject = findActiveProject()
+            activeProject.removeTask(taskID)
+            displayProjectTasks(activeProject.name)
         }
     })
 }

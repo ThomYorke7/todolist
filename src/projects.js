@@ -8,7 +8,15 @@ const projectFactory = (name) => {
         taskList.push(task)
     }
 
-    return { name, taskList, status, addTask }
+    const removeTask = (taskID) => {
+        for (let i = 0; i < taskList.length; i++) {
+            if (taskList[i].id == taskID) {
+                taskList.splice([i], 1)
+            }
+        }
+    }
+
+    return { name, taskList, status, addTask, removeTask }
 }
 
 const populateProjectList = (project) => {
