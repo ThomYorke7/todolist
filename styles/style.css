@@ -32,14 +32,26 @@ html, body {
     border-right: 1px solid gray;
 }
 
-#default-projects-container nav{
+#filters-container{
     display:flex;
     flex-direction: column;
     padding-left: 1rem;
     padding-top: 0.5rem;
 }
 
-#default-projects-container nav >* {
+#filters-title{
+    border-bottom: solid 1px gray;
+    padding: 1rem 0.7rem 0.3rem 0rem;
+    margin: 0;
+}
+
+#filters-list {
+    list-style: none;
+    margin:0;
+    padding-left: 1rem;
+}
+
+#filters-list li {
     padding: 0.3rem;
 }
 
@@ -56,7 +68,7 @@ html, body {
     display: flex;
     justify-content: space-between;
     margin: 0;
-    padding: 0.3rem;
+    padding: 1rem 0.7rem 0.3rem 0rem;
     border-bottom: solid 1px gray;
 }
 
@@ -67,6 +79,19 @@ html, body {
 
 #personal-projects-container ul >* {
     padding: 0.3rem;
+}
+
+.project {
+    display: flex;
+    justify-content: space-between;
+}
+
+.project-remove-btn {
+    background-image: url(../images/removeproject.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 10%;
+    height: auto;
 }
 
 #tasks-container {
@@ -116,7 +141,7 @@ html, body {
 
 .task-container {
     display: grid;
-    grid-template-rows: auto auto;
+    grid-template-rows: 2fr 1fr;
     grid-template-columns: auto auto;
     padding-bottom: 0.5rem;
     border-bottom: 1px solid gray;
@@ -146,7 +171,7 @@ html, body {
     pointer-events: none;
 }
 
-.task-remove-btn{
+.task-remove-btn {
     background-image: url(../images/removeicon.png);
     background-position: right;
     background-size: contain;
