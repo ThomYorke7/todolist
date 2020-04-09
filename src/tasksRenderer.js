@@ -61,7 +61,7 @@ const displayProjectTasks = (projectName) => {
     }
 }
 
-const eventListener = () => {
+const taskListeners = () => {
 
     personalProjectsContainer.addEventListener("click", (e) => {
         if (e.target && e.target.classList.contains("project")) {
@@ -95,4 +95,4 @@ const eventListener = () => {
 
 
 
-export { eventListener, projects, displayProjectTasks, findProject }
+export { taskListeners, projects, displayProjectTasks, displayProjectTitle, findProject }
