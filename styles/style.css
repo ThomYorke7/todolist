@@ -94,6 +94,10 @@ html, body {
     height: auto;
 }
 
+#project-title {
+    text-align: center;
+}
+
 #tasks-container {
     display: flex;
     flex-direction: column;
@@ -141,7 +145,7 @@ html, body {
 
 .task-container {
     display: grid;
-    grid-template-rows: 2fr 1.5fr;
+    grid-template-rows: 2rem 1rem;
     grid-template-columns: auto auto;
     padding: 0.5rem 0 0.5rem 0;
     border-bottom: 1px solid gray;
@@ -156,12 +160,13 @@ html, body {
     margin: 0;
     align-self: center;
     pointer-events: none;
+    font-size: 1.1rem 
 }
 
-.task-date {
+.task-date, .task-detail {
     justify-self: end;
+    align-self: center;
     margin:0;
-    padding: 0.3rem;
     pointer-events: none;
 }
 
@@ -170,6 +175,22 @@ html, body {
     color: red;
     pointer-events: none;
     align-self: end;
+    justify-self: start;
+}
+
+.filtered-task-priority {
+    font-size: 0.8rem;
+    color: red;
+    pointer-events: none;
+    align-self: end;
+    justify-self: end;
+}
+
+.task-project {
+    font-size: 0.8rem;
+    pointer-events: none;
+    align-self: end;
+    width: min-content;
 }
 
 .task-remove-btn {
@@ -177,7 +198,7 @@ html, body {
     background-position: right;
     background-size: contain;
     background-repeat: no-repeat;
-    width: 5%;
+    width: 1rem;
     justify-self: right;
 }
 
