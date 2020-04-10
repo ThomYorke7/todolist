@@ -25,7 +25,6 @@ migliorare css
 pulire file
 scegliere colore nome progetti nel prompt
 mostrare colori progetti nei filtri
-aggiungere collegamento a pagina progetti nei filtri
 implementare chiusura form per nuovi task / progetti
 aggiungere ricerca
 */

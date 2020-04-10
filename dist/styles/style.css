@@ -188,7 +188,6 @@ html, body {
 
 .task-project {
     font-size: 0.8rem;
-    pointer-events: none;
     align-self: end;
     width: min-content;
 }

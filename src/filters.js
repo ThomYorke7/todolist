@@ -1,5 +1,6 @@
 import { projectList } from "./projects"
 import { format, addDays } from 'date-fns'
+import { displayProjectTitle, displayProjectTasks } from "./tasksRenderer"
 
 const tasksList = document.getElementById("tasks-list")
 const addTask = document.getElementById("add-task")
@@ -64,16 +65,17 @@ const findThisWeek = () => {
     })
 }
 
-const addLinkToProject = () => {
-    for (let i = 0; i < projects.length; i++) {
-        projects[i].addEventListener("click", () => {
-            console.log("cloci")
-        })
-    }
+const addLinkToProject = (projectName) => {
+    displayProjectTitle(projectName)
+    displayProjectTasks(projectName)
 }
 
 const filtersListeners = () => {
-
+    tasksList.addEventListener("click", (e) => {
+        if (e.target.classList.contains("task-project")) {
+            addLinkToProject(e.target.textContent)
+        }
+    })
 
 
     const projectTitle = document.getElementById("project-title")
