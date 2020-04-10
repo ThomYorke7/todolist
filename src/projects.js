@@ -1,4 +1,8 @@
-const projectList = []
+//const projectList = []
+let projectList = localStorage.getItem('projects') ? JSON.parse(localStorage.getItem('projects')) : []
+
+localStorage.setItem('projects', JSON.stringify(projectList))
+const data = JSON.parse(localStorage.getItem('projects'))
 
 const projectFactory = (name) => {
     let taskList = []
@@ -21,6 +25,7 @@ const projectFactory = (name) => {
 
 const populateProjectList = (project) => {
     projectList.push(project)
+    localStorage.setItem('projects', JSON.stringify(projectList))
 }
 
 export { projectFactory, populateProjectList, projectList }

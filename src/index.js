@@ -1,16 +1,21 @@
 import { taskList, taskFactory } from "./tasks"
-import { projectFactory } from "./projects"
-import { promptNewProject, deleteProjectListener, createNotice } from "./projectsRenderer"
-import { taskListeners } from "./tasksRenderer"
-import { taskFormHandler, submitTask } from "./taskModal"
+import { projectFactory, projectList } from "./projects"
+import { promptNewProject, deleteProjectListener, createNotice, displayProjects } from "./projectsRenderer"
+import { taskListeners, displayProjectTasks } from "./tasksRenderer"
+import { taskFormHandler, submitTask, findActiveProject } from "./taskModal"
+import { filtersListeners } from "./filters"
 
+displayProjects()
+projectList.forEach(project => {
+    displayProjectTasks(project.name)
+});
 createNotice()
 promptNewProject();
 deleteProjectListener();
 taskListeners();
 taskFormHandler();
 submitTask();
-
+filtersListeners()
 
 
 
@@ -20,4 +25,5 @@ Visualizzare scritta se si cancella il progetto attivo ("es non ci sono progetti
 Visualizzare scritta di default se projectlength = 0 per far aggiungere progetti [X]
 Muovere today, this week e important in una sezione filters sotto i progetti e toglierci add task [X]
 collegare localstorage
+editare css e correggere grandezza cestino se non c'è priorità
 */

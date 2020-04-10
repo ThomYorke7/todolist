@@ -141,9 +141,9 @@ html, body {
 
 .task-container {
     display: grid;
-    grid-template-rows: 2fr 1fr;
+    grid-template-rows: 2fr 1.5fr;
     grid-template-columns: auto auto;
-    padding-bottom: 0.5rem;
+    padding: 0.5rem 0 0.5rem 0;
     border-bottom: 1px solid gray;
 }
 
@@ -169,6 +169,7 @@ html, body {
     font-size: 0.8rem;
     color: red;
     pointer-events: none;
+    align-self: end;
 }
 
 .task-remove-btn {

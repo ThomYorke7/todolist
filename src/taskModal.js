@@ -36,6 +36,7 @@ const submitTask = () => {
         let newTask = taskFactory(taskName, taskDate, taskPriority);
         let activeProject = findActiveProject();
         activeProject.taskList.push(newTask);
+        localStorage.setItem('projects', JSON.stringify(projectList))
         console.log(projectList)
     })
 

@@ -8,6 +8,7 @@ const formContainer = document.getElementById("task-form-container")
 const tasksContainer = document.getElementById("tasks-container")
 const tasksList = document.getElementById("tasks-list")
 const removeTaskBtn = document.getElementsByClassName("task-remove-btn")
+const addTask = document.getElementById("add-task")
 
 const createTaskContainer = (title, date, priority, taskID) => {
     const taskContainer = document.createElement("div")
@@ -54,6 +55,7 @@ const displayProjectTasks = (projectName) => {
     let projectToDisplay = findProject(projectName)
     let projectTasks = projectToDisplay.taskList
     tasksList.innerHTML = ""
+    addTask.style.display = "block"
     if (projectTasks.length > 0) {
         for (let i = 0; i < projectTasks.length; i++) {
             createTaskContainer(...Object.values(projectTasks[i]))
@@ -87,7 +89,14 @@ const taskListeners = () => {
         if (e.target && e.target.classList.contains("task-remove-btn")) {
             let taskID = e.target.id
             let activeProject = findActiveProject()
-            activeProject.removeTask(taskID)
+            console.log(activeProject)
+            //activeProject.removeTask(taskID)
+            for (let i = 0; i < activeProject.taskList.length; i++) {
+                if (activeProject.taskList[i].id == taskID) {
+                    activeProject.taskList.splice([i], 1)
+                }
+            }
+            localStorage.setItem('projects', JSON.stringify(projectList))
             displayProjectTasks(activeProject.name)
         }
     })
@@ -95,4 +104,4 @@ const taskListeners = () => {
 
 
 
-export { taskListeners, projects, displayProjectTasks, displayProjectTitle, findProject }
+export { taskListeners, projects, displayProjectTasks, displayProjectTitle, findProject, createTaskContainer }

@@ -44,13 +44,16 @@ const promptNewProject = () => {
 const createNotice = () => {
     const tasksList = document.getElementById("tasks-list")
     const projectTitle = document.getElementById("project-title")
-    addTask.style.display = "none"
     if (projectList.length == 0) {
         projectTitle.textContent = "You have no projects. Let's create a new one!"
         projectTitle.style.textAlign = "center"
         tasksList.textContent = ""
+        addTask.style.display = "none"
     } else if (projectList.length > 0) {
-        tasksList.textContent = "This project has been deleted. Select another project or create a new one."
+        projectTitle.textContent = "Select one of your projects"
+        projectTitle.style.textAlign = "center"
+        tasksList.textContent = ""
+        addTask.style.display = "none"
     }
 }
 
@@ -58,9 +61,11 @@ const deleteProject = projectName => {
     for (let i = 0; i < projectList.length; i++) {
         if (projectList[i].name == projectName && projectList[i].status == "active") {
             projectList.splice([i], 1)
+            localStorage.setItem('projects', JSON.stringify(projectList))
             createNotice()
         } else if (projectList[i].name == projectName) {
             projectList.splice([i], 1)
+            localStorage.setItem('projects', JSON.stringify(projectList))
         }
     }
 }
@@ -83,4 +88,4 @@ const deleteProjectListener = () => {
 
 
 
-export { promptNewProject, deleteProjectListener, createNotice }
+export { promptNewProject, deleteProjectListener, createNotice, displayProjects }
