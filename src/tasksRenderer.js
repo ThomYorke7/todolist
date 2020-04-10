@@ -1,13 +1,10 @@
-import { taskList, taskFactory } from "./tasks.js"
 import { projectFactory, projectList, populateProjectList } from "./projects.js"
-import { findActiveProject } from "./taskModal"
+import { findActiveProject, taskCounter } from "./taskModal"
 
-const projects = document.getElementsByClassName("project")
 const personalProjectsContainer = document.getElementById("personal-projects-container")
 const formContainer = document.getElementById("task-form-container")
 const tasksContainer = document.getElementById("tasks-container")
 const tasksList = document.getElementById("tasks-list")
-const removeTaskBtn = document.getElementsByClassName("task-remove-btn")
 const addTask = document.getElementById("add-task")
 
 const createTaskContainer = (title, date, priority, taskID) => {
@@ -34,6 +31,7 @@ const createTaskContainer = (title, date, priority, taskID) => {
     taskContainer.appendChild(taskRemoveBtn);
     tasksList.appendChild(taskContainer)
 }
+
 
 const displayProjectTitle = (project) => {
     let projectTitle = document.getElementById("project-title")
@@ -79,18 +77,11 @@ const taskListeners = () => {
         }
     })
 
-    tasksContainer.addEventListener("click", (e) => {
-        if (e.target && e.target.classList.contains("task-container")) {
-            e.target.classList.toggle("erased")
-        }
-    })
 
     tasksContainer.addEventListener("click", (e) => {
         if (e.target && e.target.classList.contains("task-remove-btn")) {
             let taskID = e.target.id
             let activeProject = findActiveProject()
-            console.log(activeProject)
-            //activeProject.removeTask(taskID)
             for (let i = 0; i < activeProject.taskList.length; i++) {
                 if (activeProject.taskList[i].id == taskID) {
                     activeProject.taskList.splice([i], 1)
@@ -98,10 +89,11 @@ const taskListeners = () => {
             }
             localStorage.setItem('projects', JSON.stringify(projectList))
             displayProjectTasks(activeProject.name)
+            taskCounter()
         }
     })
 }
 
 
 
-export { taskListeners, projects, displayProjectTasks, displayProjectTitle, findProject, createTaskContainer }
+export { taskListeners, displayProjectTasks, displayProjectTitle, findProject, createTaskContainer }

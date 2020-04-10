@@ -1,6 +1,7 @@
 import { projectFactory, projectList, populateProjectList } from "./projects.js"
 import { taskList, taskFactory } from "./tasks.js"
 import { displayProjectTasks, displayProjectTitle } from "./tasksRenderer"
+import { taskCounter } from "./taskModal"
 
 const addProjectButton = document.getElementById("ul-title")
 const projectUl = document.getElementById("projects-list")
@@ -46,12 +47,10 @@ const createNotice = () => {
     const projectTitle = document.getElementById("project-title")
     if (projectList.length == 0) {
         projectTitle.textContent = "You have no projects. Let's create a new one!"
-        projectTitle.style.textAlign = "center"
         tasksList.textContent = ""
         addTask.style.display = "none"
     } else if (projectList.length > 0) {
         projectTitle.textContent = "Select one of your projects"
-        projectTitle.style.textAlign = "center"
         tasksList.textContent = ""
         addTask.style.display = "none"
     }
@@ -80,6 +79,7 @@ const deleteProjectListener = () => {
                 deleteProject(projectName);
             }
             displayProjects()
+            taskCounter()
         }
     })
 }
