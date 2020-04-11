@@ -11,7 +11,7 @@ const submitTaskBtn = document.getElementById("add-task-btn")
 
 // Functions
 const taskCounter = () => {
-    const taskCounter = document.getElementById("task-counter-container")
+    const taskCounter = document.getElementById("task-counter")
     let counter = 0
     projectList.forEach(project => {
         let taskList = project.taskList
@@ -19,7 +19,7 @@ const taskCounter = () => {
             counter++
         })
     })
-    taskCounter.textContent = `Total Tasks: ${counter}`
+    taskCounter.textContent = counter
 }
 
 const taskFormHandler = () => {

@@ -108,19 +108,19 @@ const filtersListeners = () => {
         }
     })
 
-    const searchBtn = document.getElementById("search-btn")
-    searchBtn.addEventListener("click", () => {
+    const searchForm = document.getElementById("search-form")
+    searchForm.addEventListener("submit", (e) => {
+        e.preventDefault()
         let input = document.getElementById("search-task").value
         projectTitle.textContent = "Search Results"
         tasksList.innerHTML = "";
         addTask.style.display = "none"
         findTask(input)
-
     })
 
     const important = document.getElementById("important")
     important.addEventListener("click", () => {
-        projectTitle.textContent = "Important Tasks"
+        projectTitle.textContent = "Important"
         tasksList.innerHTML = "";
         addTask.style.display = "none"
         findImportant();
@@ -128,7 +128,7 @@ const filtersListeners = () => {
 
     const today = document.getElementById("today")
     today.addEventListener("click", () => {
-        projectTitle.textContent = "Today's Tasks"
+        projectTitle.textContent = "Today"
         tasksList.innerHTML = "";
         addTask.style.display = "none"
         findToday()
@@ -137,7 +137,7 @@ const filtersListeners = () => {
 
     const nextWeek = document.getElementById("next-week")
     nextWeek.addEventListener("click", () => {
-        projectTitle.textContent = "This Week's Tasks"
+        projectTitle.textContent = "This Week"
         tasksList.innerHTML = "";
         addTask.style.display = "none"
         findThisWeek()
@@ -146,7 +146,7 @@ const filtersListeners = () => {
 
     const expired = document.getElementById("expired")
     expired.addEventListener("click", () => {
-        projectTitle.textContent = "Expired Tasks"
+        projectTitle.textContent = "Expired"
         tasksList.innerHTML = "";
         addTask.style.display = "none"
         findExpired()
