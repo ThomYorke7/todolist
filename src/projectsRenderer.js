@@ -1,12 +1,15 @@
+// Import declarations
 import { projectList } from "./projects.js"
 import { taskCounter } from "./taskModal"
 
+
+//General variables
 const projectUl = document.getElementById("projects-list")
 const lateralContainer = document.getElementById("lateral-container")
 const addTask = document.getElementById("add-task")
 
 
-
+//Functions
 const displayProjects = () => {
     projectUl.innerHTML = ""
     for (let i = 0; i < projectList.length; i++) {
@@ -21,18 +24,15 @@ const displayProjects = () => {
     }
 }
 
-
 const createNotice = () => {
     const tasksList = document.getElementById("tasks-list")
     const projectTitle = document.getElementById("project-title")
+    tasksList.textContent = ""
+    addTask.style.display = "none"
     if (projectList.length == 0) {
         projectTitle.textContent = "You have no projects. Let's create a new one!"
-        tasksList.textContent = ""
-        addTask.style.display = "none"
     } else if (projectList.length > 0) {
         projectTitle.textContent = "Select one of your projects"
-        tasksList.textContent = ""
-        addTask.style.display = "none"
     }
 }
 
@@ -50,7 +50,6 @@ const deleteProject = projectName => {
     }
 }
 
-
 const deleteProjectListener = () => {
     lateralContainer.addEventListener("click", (e) => {
         if (e.target.classList.contains("project-remove-btn")) {
@@ -66,7 +65,5 @@ const deleteProjectListener = () => {
 }
 
 
-
-
-
+// Export declarations
 export { deleteProjectListener, createNotice, displayProjects }

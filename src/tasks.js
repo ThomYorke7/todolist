@@ -1,9 +1,14 @@
+// Import Declarations
 import { format } from 'date-fns'
 
+
+// Global Variables
 const taskList = [];
 let taskID = localStorage.getItem('taskID') ? JSON.parse(localStorage.getItem('taskID')) : 0
 localStorage.setItem('taskID', JSON.stringify(taskID))
 
+
+// Task Factory
 const taskFactory = (title, dueDate, priority) => {
     let id = taskID
     let date = null

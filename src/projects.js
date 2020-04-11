@@ -1,30 +1,22 @@
+// Load Projects from LocalStorage
 let projectList = localStorage.getItem('projects') ? JSON.parse(localStorage.getItem('projects')) : []
-
 localStorage.setItem('projects', JSON.stringify(projectList))
-//const data = JSON.parse(localStorage.getItem('projects'))
 
+
+// Project Factory
 const projectFactory = (name, color) => {
     let taskList = []
     let status = "idle"
-
-    const addTask = (task) => {
-        taskList.push(task)
-    }
-
-    const removeTask = (taskID) => {
-        for (let i = 0; i < taskList.length; i++) {
-            if (taskList[i].id == taskID) {
-                taskList.splice([i], 1)
-            }
-        }
-    }
-
-    return { name, color, taskList, status, addTask, removeTask }
+    return { name, color, taskList, status }
 }
 
+
+// Functions
 const populateProjectList = (project) => {
     projectList.push(project)
     localStorage.setItem('projects', JSON.stringify(projectList))
 }
 
+
+// Export Declarations
 export { projectFactory, populateProjectList, projectList }

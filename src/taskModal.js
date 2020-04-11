@@ -1,10 +1,15 @@
+// Import Declarations
 import { taskFactory } from "./tasks"
 import { projectList } from "./projects.js"
 
+
+// Global Variables
 const addTask = document.getElementById("add-task")
 const formContainer = document.getElementById("task-form-container")
 const submitTaskBtn = document.getElementById("add-task-btn")
 
+
+// Functions
 const taskCounter = () => {
     const taskCounter = document.getElementById("task-counter-container")
     let counter = 0
@@ -58,5 +63,5 @@ const submitTask = () => {
 }
 
 
-
+// Export Declarations
 export { taskFormHandler, submitTask, findActiveProject, taskCounter }

@@ -1,12 +1,17 @@
+// Import Declarations
 import { projectList } from "./projects.js"
 import { findActiveProject, taskCounter } from "./taskModal"
 
+
+// Global Variables
 const personalProjectsContainer = document.getElementById("personal-projects-container")
 const formContainer = document.getElementById("task-form-container")
 const tasksContainer = document.getElementById("tasks-container")
 const tasksList = document.getElementById("tasks-list")
 const addTask = document.getElementById("add-task")
 
+
+// Functions
 const createTaskContainer = (title, date, priority, taskID) => {
     const taskContainer = document.createElement("div")
     taskContainer.classList.add("task-container")
@@ -31,7 +36,6 @@ const createTaskContainer = (title, date, priority, taskID) => {
     taskContainer.appendChild(taskRemoveBtn);
     tasksList.appendChild(taskContainer)
 }
-
 
 const displayProjectTitle = (project) => {
     let projectTitle = document.getElementById("project-title")
@@ -95,5 +99,5 @@ const taskListeners = () => {
 }
 
 
-
+// Export Declarations
 export { taskListeners, displayProjectTasks, displayProjectTitle, findProject, createTaskContainer }

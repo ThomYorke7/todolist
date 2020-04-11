@@ -1,17 +1,20 @@
+// Import Declarations
 import { projectFactory, projectList, populateProjectList } from "./projects.js"
 import { displayProjects } from "./projectsRenderer"
 import { displayProjectTasks, displayProjectTitle } from "./tasksRenderer"
 
+
+// Global Variables
 const addProjectBtn = document.getElementById("add-project-btn")
 const addProject = document.getElementById("ul-title")
 const projectFormContainer = document.getElementById("project-form-container")
 
 
+// Functions
 const projectHandler = () => {
     addProject.addEventListener("click", () => {
         projectFormContainer.style.display = "flex"
     })
-
 
     projectFormContainer.addEventListener("click", (e) => {
         if (e.target.id == "add-project-btn" || e.target.id == "close-project-btn") {
@@ -19,7 +22,6 @@ const projectHandler = () => {
             projectFormContainer.style.display = "none";
         }
     })
-
 
     addProjectBtn.addEventListener("click", (e) => {
         e.preventDefault()
@@ -34,5 +36,6 @@ const projectHandler = () => {
     })
 }
 
+// Export Declarations
 export { projectHandler }
 

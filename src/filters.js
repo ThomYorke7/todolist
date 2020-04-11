@@ -1,11 +1,16 @@
+// Import Declarations
 import { projectList } from "./projects"
 import { format, addDays } from 'date-fns'
 import { displayProjectTitle, displayProjectTasks } from "./tasksRenderer"
 
+
+// Global Variables
 const tasksList = document.getElementById("tasks-list")
 const addTask = document.getElementById("add-task")
 const projectTitle = document.getElementById("project-title")
 
+
+// Functions
 const filteredTaskContainer = (title, date, priority, project, color) => {
     const taskContainer = document.createElement("div")
     taskContainer.classList.add("task-container")
@@ -96,8 +101,6 @@ const findTask = (input) => {
     })
 }
 
-
-
 const filtersListeners = () => {
     tasksList.addEventListener("click", (e) => {
         if (e.target.classList.contains("task-project")) {
@@ -152,5 +155,5 @@ const filtersListeners = () => {
 
 }
 
-
+// Export Declarations
 export { filtersListeners }
