@@ -230,6 +230,10 @@ li {
     justify-self: right;
 }
 
+.task-remove-btn:hover {
+    cursor: pointer;
+}
+
 #add-task {
     color:gray;
     width: max-content;
