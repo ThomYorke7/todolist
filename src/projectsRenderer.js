@@ -1,9 +1,6 @@
-import { projectFactory, projectList, populateProjectList } from "./projects.js"
-import { taskList, taskFactory } from "./tasks.js"
-import { displayProjectTasks, displayProjectTitle } from "./tasksRenderer"
+import { projectList } from "./projects.js"
 import { taskCounter } from "./taskModal"
 
-const addProjectButton = document.getElementById("ul-title")
 const projectUl = document.getElementById("projects-list")
 const lateralContainer = document.getElementById("lateral-container")
 const addTask = document.getElementById("add-task")

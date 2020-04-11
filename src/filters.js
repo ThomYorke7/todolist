@@ -4,6 +4,7 @@ import { displayProjectTitle, displayProjectTasks } from "./tasksRenderer"
 
 const tasksList = document.getElementById("tasks-list")
 const addTask = document.getElementById("add-task")
+const projectTitle = document.getElementById("project-title")
 
 const filteredTaskContainer = (title, date, priority, project, color) => {
     const taskContainer = document.createElement("div")
@@ -84,6 +85,19 @@ const addLinkToProject = (projectName) => {
     displayProjectTasks(projectName)
 }
 
+const findTask = (input) => {
+    projectList.forEach(project => {
+        let taskList = project.taskList
+        taskList.forEach(task => {
+            if (task.title == input) {
+                filteredTaskContainer(task.title, task.date, task.priority, project.name, project.color)
+            }
+        })
+    })
+}
+
+
+
 const filtersListeners = () => {
     tasksList.addEventListener("click", (e) => {
         if (e.target.classList.contains("task-project")) {
@@ -91,8 +105,16 @@ const filtersListeners = () => {
         }
     })
 
+    const searchBtn = document.getElementById("search-btn")
+    searchBtn.addEventListener("click", () => {
+        let input = document.getElementById("search-task").value
+        projectTitle.textContent = "Search Results"
+        tasksList.innerHTML = "";
+        addTask.style.display = "none"
+        findTask(input)
 
-    const projectTitle = document.getElementById("project-title")
+    })
+
     const important = document.getElementById("important")
     important.addEventListener("click", () => {
         projectTitle.textContent = "Important Tasks"

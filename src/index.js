@@ -1,5 +1,4 @@
-import { taskList, taskFactory } from "./tasks"
-import { projectFactory, projectList } from "./projects"
+import { projectList } from "./projects"
 import { deleteProjectListener, createNotice, displayProjects } from "./projectsRenderer"
 import { taskListeners, displayProjectTasks } from "./tasksRenderer"
 import { taskFormHandler, submitTask, taskCounter } from "./taskModal"
@@ -18,11 +17,3 @@ taskListeners();
 taskFormHandler();
 submitTask();
 filtersListeners()
-
-
-
-/*
-migliorare css
-pulire file
-aggiungere ricerca
-*/

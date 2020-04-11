@@ -1,4 +1,4 @@
-import { projectFactory, projectList, populateProjectList } from "./projects.js"
+import { projectList } from "./projects.js"
 import { findActiveProject, taskCounter } from "./taskModal"
 
 const personalProjectsContainer = document.getElementById("personal-projects-container")

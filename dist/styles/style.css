@@ -11,6 +11,10 @@ html, body {
     font-size: 18px;
 }
 
+li {
+    cursor: pointer;
+}
+
 #header {
     display: flex;
     height: 2.5rem;
@@ -128,10 +132,7 @@ html, body {
     border-radius: 3%;
 }
 
-/* #task-form > * {
-    display: flex;
-    flex-direction: column;
-} */
+
 
 #task-form input {
     margin-top: 0.2rem;
