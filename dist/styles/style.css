@@ -314,6 +314,6 @@ li {
 .task-project {
     font-size: 0.8rem;
     align-self: end;
-    width: min-content;
+    width: max-content;
 }
 
