@@ -48,6 +48,7 @@ const deleteProject = projectName => {
         } else if (projectList[i].name == projectName) {
             projectList.splice([i], 1)
             localStorage.setItem('projects', JSON.stringify(projectList))
+            createNotice()
         }
     }
 }
