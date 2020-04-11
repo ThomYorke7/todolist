@@ -256,14 +256,14 @@ li {
     text-align: center;
     justify-content: center;
     align-items: center;
-    background-color: #0084ff83;
-    /* background-color: rgba(255, 255, 255, 0.8); */
+    /* background-color: #0084ff83; */
+    background-color: rgba(255, 255, 255, 0.8);
 }
 
 #task-form, #project-form {
     display: flex;
     flex-direction: column;;
-    background-color: white;
+    background-color: #0084ff83;
     margin-bottom: 20%;
     width: auto;
     height: min-content;
@@ -293,6 +293,10 @@ li {
     margin: auto;
 }
 
+#add-task-btn:hover, #close-task-btn:hover, #add-project-btn:hover, #close-project-btn:hover {
+    cursor: pointer;
+    
+}
 
 /* Filtered Task Rendering */
 .filtered-task-priority {
