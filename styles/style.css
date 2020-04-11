@@ -1,62 +1,101 @@
+@import url('https://fonts.googleapis.com/css?family=Baloo+Paaji+2|Lato|Noto+Sans|Open+Sans&display=swap');
 
-
+/* Global Settings */
 * {
     box-sizing: border-box;
 }
-
 
 html, body {
     width: 100%;
     height: 100%;
     font-size: 18px;
+    font-family: 'Lato', sans-serif;
 }
 
 li {
     cursor: pointer;
 }
 
+
+/* Header Bar */
 #header {
     display: flex;
     height: 2.5rem;
     align-items: center;
     justify-content: space-between;
     padding: 1rem;
-    background-color: brown;
+    background-color: #0083ff;
+    color: white;
+    box-shadow: 0 2px 2px 2px rgba(0,0,0,0.2);
+    position: relative;
 }
 
+#logo-container {
+    display: flex;
+    align-items: center;
+}
+
+#logo, #counter-list {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 0.4rem;
+}
+
+#search-container {
+    display: flex;
+    min-width: fit-content;
+    align-items: center;
+    justify-content: space-evenly;;
+}
+
+#search-container input{
+    background-image: url(../images/magnifier.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+    padding: 5px;
+    border: none;
+    border-radius: 2%;
+}
+
+#task-counter-container {
+    display: flex;
+    align-items: center;
+}
+
+/* Main Page Container */
 #main-container {
     display: grid;
     grid-template-columns: 1fr 4fr;
     height: 95%;
 }
 
+
+/* Lateral Container for Project List*/
 #lateral-container {
     display: flex;
     flex-direction: column;
-    border-right: 1px solid gray;
+    border-right: 2px solid #e1e1e1;
+    background-color: #fafafa
 }
 
-#filters-container{
-    display:flex;
-    flex-direction: column;
-    padding-left: 1rem;
-    padding-top: 0.5rem;
-}
-
-#filters-title{
-    border-bottom: solid 1px gray;
-    padding: 1rem 0.7rem 0.3rem 0rem;
+#ul-title {
+    display: flex;
+    justify-content: space-between;
     margin: 0;
+    padding: 1rem 0.8rem 0.3rem 0rem;
+    border-bottom: solid 2px #e1e1e1;
+    font-weight: bold;
+    cursor: pointer;
 }
 
-#filters-list {
-    list-style: none;
-    margin:0;
-    padding-left: 1rem;
+#ul-title::after {
+    content: "+";
+    color: red
 }
 
-#filters-list li {
-    padding: 0.3rem;
+#projects-list {
+    list-style: circle;
 }
 
 #personal-projects-container {
@@ -66,19 +105,6 @@ li {
 #personal-projects-container ul{
     padding-left: 1rem;
     margin: 0;
-}
-
-#ul-title {
-    display: flex;
-    justify-content: space-between;
-    margin: 0;
-    padding: 1rem 0.7rem 0.3rem 0rem;
-    border-bottom: solid 1px gray;
-}
-
-#ul-title::after {
-    content: "+";
-    color: red
 }
 
 #personal-projects-container ul >* {
@@ -98,6 +124,57 @@ li {
     height: auto;
 }
 
+#filters-container{
+    display:flex;
+    flex-direction: column;
+    padding-left: 1rem;
+    padding-top: 0.5rem;
+}
+
+#filters-title{
+    border-bottom: solid 2px #e1e1e1;
+    padding: 1rem 0.7rem 0.3rem 0rem;
+    margin: 0;
+    font-weight: bold;
+}
+
+#filters-list {
+    list-style: none;
+    margin:0;
+    padding-left: 1rem;
+}
+
+#filters-list li {
+    padding: 0.3rem;
+}
+
+#today, #next-week, #expired, #important {
+    background-size: 1rem 1rem;
+    background-repeat: no-repeat;
+    background-position: right;
+    margin-right: 0.7rem;
+}
+
+#today {
+    background-image: url(../images/today.png);
+}
+
+#next-week {
+    background-image: url(../images/week.png);
+}
+
+#expired {
+    background-image: url(../images/expired.png);
+}
+
+#important {
+    background-image: url(../images/important.png);
+    background-size: 1.2rem 1.2rem;
+    margin-right: 0.65rem
+}
+
+
+/* Project and Task Rendering */
 #project-title {
     text-align: center;
 }
@@ -112,55 +189,14 @@ li {
     padding: 0.5rem;
 }
 
-#task-form-container, #project-form-container {
-    position: absolute;
-    display: none;
-    flex-direction: row;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(255, 255, 255, 0.8);
-}
 
-#task-form, #project-form {
-    background-color: brown;
-    width: 20%;
-    height: min-content;
-    padding: 1rem;
-    border-radius: 3%;
-}
-
-
-
-#task-form input {
-    margin-top: 0.2rem;
-    margin-bottom: 0.8rem;
-}
-
-.form-buttons-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
-#add-task-btn, #close-task-btn, #add-project-btn, #close-project-btn {
-    margin: auto;
-}
-
-
+/* Single Task Details */
 .task-container {
     display: grid;
     grid-template-rows: 2rem 1rem;
     grid-template-columns: auto auto;
     padding: 0.5rem 0 0.5rem 0;
-    border-bottom: 1px solid gray;
-}
-
-.erased, .erased .task-priority {
-    
-    color: gray;
+    border-bottom: 2px solid #e1e1e1;
 }
 
 .task-header {
@@ -183,20 +219,6 @@ li {
     pointer-events: none;
     align-self: end;
     justify-self: start;
-}
-
-.filtered-task-priority {
-    font-size: 0.8rem;
-    color: red;
-    pointer-events: none;
-    align-self: end;
-    justify-self: end;
-}
-
-.task-project {
-    font-size: 0.8rem;
-    align-self: end;
-    width: min-content;
 }
 
 .task-remove-btn {
@@ -222,3 +244,68 @@ li {
     padding-right: 0.3rem;
     color: red;
 }
+
+
+/* Project and Task Modal */ 
+#task-form-container, #project-form-container {
+    position: absolute;
+    display: none;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    background-color: #0084ff83;
+    /* background-color: rgba(255, 255, 255, 0.8); */
+}
+
+#task-form, #project-form {
+    display: flex;
+    flex-direction: column;;
+    background-color: white;
+    margin-bottom: 20%;
+    width: auto;
+    height: min-content;
+    padding: 1rem;
+    border-radius: 3%;
+}
+
+#name-label, #date-label, #project-name-label {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    width: min-content;
+}
+
+#task-form input, #project-form input {
+    margin-top: 0.2rem;
+    margin-bottom: 0.8rem;
+}
+
+.form-buttons-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#add-task-btn, #close-task-btn, #add-project-btn, #close-project-btn {
+    margin: auto;
+}
+
+
+/* Filtered Task Rendering */
+.filtered-task-priority {
+    font-size: 0.8rem;
+    color: red;
+    pointer-events: none;
+    align-self: end;
+    justify-self: end;
+}
+
+.task-project {
+    font-size: 0.8rem;
+    align-self: end;
+    width: min-content;
+}
+
