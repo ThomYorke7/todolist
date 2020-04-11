@@ -9,19 +9,13 @@ const lateralContainer = document.getElementById("lateral-container")
 const addTask = document.getElementById("add-task")
 
 
-const createProject = () => {
-    let projectName = prompt("Project Name: ");
-    if (projectName) {
-        let project = projectFactory(projectName);
-        populateProjectList(project)
-    }
-}
 
 const displayProjects = () => {
     projectUl.innerHTML = ""
     for (let i = 0; i < projectList.length; i++) {
         let project = document.createElement("li")
         project.classList.add("project")
+        project.style.color = projectList[i].color
         project.appendChild(document.createTextNode(projectList[i].name))
         const projectRemoveBtn = document.createElement("div")
         projectRemoveBtn.classList.add("project-remove-btn")
@@ -30,17 +24,6 @@ const displayProjects = () => {
     }
 }
 
-
-const promptNewProject = () => {
-    addProjectButton.addEventListener("click", () => {
-        createProject();
-        displayProjects();
-        displayProjectTitle(projectList[projectList.length - 1].name)
-        projectList[projectList.length - 1].status = "active"
-        displayProjectTasks(projectList[projectList.length - 1].name)
-        addTask.style.display = "block"
-    });
-}
 
 const createNotice = () => {
     const tasksList = document.getElementById("tasks-list")
@@ -88,4 +71,4 @@ const deleteProjectListener = () => {
 
 
 
-export { promptNewProject, deleteProjectListener, createNotice, displayProjects }
+export { deleteProjectListener, createNotice, displayProjects }

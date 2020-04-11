@@ -108,7 +108,7 @@ html, body {
     padding: 0.5rem;
 }
 
-#task-form-container {
+#task-form-container, #project-form-container {
     position: absolute;
     display: none;
     flex-direction: row;
@@ -120,7 +120,7 @@ html, body {
     background-color: rgba(255, 255, 255, 0.8);
 }
 
-#task-form {
+#task-form, #project-form {
     background-color: brown;
     width: 20%;
     height: min-content;
@@ -128,17 +128,23 @@ html, body {
     border-radius: 3%;
 }
 
-#task-form > * {
+/* #task-form > * {
     display: flex;
     flex-direction: column;
-}
+} */
 
 #task-form input {
     margin-top: 0.2rem;
     margin-bottom: 0.8rem;
 }
 
-#add-task-btn {
+.form-buttons-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#add-task-btn, #close-task-btn, #add-project-btn, #close-project-btn {
     margin: auto;
 }
 

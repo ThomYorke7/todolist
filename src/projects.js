@@ -4,7 +4,7 @@ let projectList = localStorage.getItem('projects') ? JSON.parse(localStorage.get
 localStorage.setItem('projects', JSON.stringify(projectList))
 const data = JSON.parse(localStorage.getItem('projects'))
 
-const projectFactory = (name) => {
+const projectFactory = (name, color) => {
     let taskList = []
     let status = "idle"
 
@@ -20,7 +20,7 @@ const projectFactory = (name) => {
         }
     }
 
-    return { name, taskList, status, addTask, removeTask }
+    return { name, color, taskList, status, addTask, removeTask }
 }
 
 const populateProjectList = (project) => {

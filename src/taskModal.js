@@ -4,6 +4,7 @@ import { projectList } from "./projects.js"
 const addTask = document.getElementById("add-task")
 const formContainer = document.getElementById("task-form-container")
 const submitTaskBtn = document.getElementById("add-task-btn")
+const closeTaskBtn = document.getElementById("close-task-btn")
 
 const taskCounter = () => {
     const taskCounter = document.getElementById("task-counter-container")
@@ -25,8 +26,11 @@ const taskFormHandler = () => {
     })()
 
     const hideTaskForm = (() => {
-        submitTaskBtn.addEventListener("click", () => {
-            formContainer.style.display = "none";
+        formContainer.addEventListener("click", (e) => {
+            if (e.target.id == "add-task-btn" || e.target.id == "close-task-btn") {
+                e.preventDefault()
+                formContainer.style.display = "none";
+            }
         })
     })()
 }
