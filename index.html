@@ -12,7 +12,10 @@
 <body>
     <div id="header">
         <div id="logo-container">ToDo List</div>
-        <div id="search-container">Quick Search</div>
+        <div id="search-container">
+            <input type="text" name="search-task" id="search-task" placeholder="Quick Search" onfocus="this.value=''">
+            <button id="search-btn" type="button"></button>
+        </div>
         <div id="task-counter-container">Total Tasks: </div>
     </div>
 
