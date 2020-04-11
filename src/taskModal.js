@@ -6,7 +6,7 @@ import { projectList } from "./projects.js"
 // Global Variables
 const addTask = document.getElementById("add-task")
 const formContainer = document.getElementById("task-form-container")
-const submitTaskBtn = document.getElementById("add-task-btn")
+const form = document.getElementById("task-form")
 
 
 // Functions
@@ -48,7 +48,7 @@ const findActiveProject = () => {
 }
 
 const submitTask = () => {
-    submitTaskBtn.addEventListener("click", (e) => {
+    form.addEventListener("submit", (e) => {
         e.preventDefault()
         let taskName = document.getElementById("name").value
         let taskDate = document.getElementById("date").value
