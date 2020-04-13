@@ -260,7 +260,6 @@ li {
     text-align: center;
     justify-content: center;
     align-items: center;
-    /* background-color: #0084ff83; */
     background-color: rgba(255, 255, 255, 0.8);
 }
 
@@ -273,6 +272,7 @@ li {
     height: min-content;
     padding: 1rem;
     border-radius: 3%;
+    animation: popup 150ms ease-in-out;
 }
 
 #name-label, #date-label, #project-name-label {
@@ -300,6 +300,16 @@ li {
 #add-task-btn:hover, #close-task-btn:hover, #add-project-btn:hover, #close-project-btn:hover {
     cursor: pointer;
     
+}
+
+@keyframes popup {
+    from {
+        scale: 0;
+    }
+
+    to{
+        scale: 1;
+    }
 }
 
 /* Filtered Task Rendering */
